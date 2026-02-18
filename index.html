@@ -3,39 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viral Page</title>
+<title>Trang Cute 💕</title>
 
-<!-- Open Graph (ảnh preview khi share link) -->
-<meta property="og:title" content="Xem Ngay Cái Này 🔥" />
-<meta property="og:description" content="Click vào sẽ bất ngờ đó 😏" />
-<meta property="og:image" content="https://xoaihub.github.io/knhi-sit/preview.gif" />
+<!-- Open Graph preview khi share link -->
+<meta property="og:title" content="Bấm vào đi dễ thương lắm 🥺💖" />
+<meta property="og:description" content="Click thử xem có gì nè 🫶" />
+<meta property="og:image" content="https://anhdephd.vn/wp-content/uploads/2022/06/hinh-anh-dong-de-thuong-800x382.gif" />
 <meta property="og:type" content="website" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:'Quicksand',sans-serif;
 }
 
 body{
-    background:#000;
-    color:white;
+    height:100vh;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
     overflow:hidden;
 }
 
-/* GIF Loading */
+/* GIF loading */
 #loading{
     position:fixed;
     width:100%;
     height:100vh;
+    background:#000;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#000;
     z-index:10;
 }
 
@@ -45,78 +48,62 @@ body{
     object-fit:cover;
 }
 
-/* Main */
+/* Main cute card */
 #main{
     display:none;
 }
 
-video{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-1;
-}
-
-.overlay{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+.container{
     text-align:center;
-    background:rgba(0,0,0,0.5);
-    padding:20px;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(12px);
+    padding:50px 40px;
+    border-radius:30px;
+    box-shadow:0 10px 40px rgba(255,105,180,0.4);
+    animation:float 4s ease-in-out infinite;
 }
 
 h1{
-    font-size:50px;
-    font-weight:800;
-    animation:fadeUp 1s ease forwards;
+    font-size:40px;
+    font-weight:700;
+    color:white;
 }
 
 p{
-    margin-top:20px;
-    font-size:20px;
-    opacity:0.9;
-    animation:fadeUp 1.5s ease forwards;
+    margin-top:15px;
+    font-size:18px;
+    color:white;
 }
 
 .btn{
     margin-top:30px;
-    padding:15px 40px;
-    background:#ff0050;
+    padding:14px 35px;
     border:none;
     border-radius:50px;
-    color:white;
+    background:white;
+    color:#ff4f81;
     font-weight:600;
+    font-size:16px;
     cursor:pointer;
-    font-size:18px;
-    box-shadow:0 0 20px rgba(255,0,80,0.6);
     transition:0.3s;
+    box-shadow:0 5px 20px rgba(255,105,180,0.5);
 }
 
 .btn:hover{
     transform:scale(1.1);
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+/* Floating animation */
+@keyframes float{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-15px); }
+    100%{ transform:translateY(0px); }
 }
 
-/* Mobile tối ưu */
+/* Responsive */
 @media(max-width:768px){
     h1{
-        font-size:32px;
+        font-size:28px;
     }
 }
 </style>
@@ -124,28 +111,24 @@ p{
 
 <body>
 
-<!-- GIF -->
+<!-- GIF đầu -->
 <div id="loading">
     <img src="https://anhdephd.vn/wp-content/uploads/2022/06/hinh-anh-dong-de-thuong-800x382.gif">
 </div>
 
-<!-- Main -->
+<!-- Nội dung chính -->
 <div id="main">
-    <video autoplay muted loop playsinline>
-        <source src="background.mp4" type="video/mp4">
-    </video>
-
-    <div class="overlay">
-        <h1>BẤM VÀO ĐI 😈</h1>
-        <p>Thứ này đang viral trên TikTok đó 🔥</p>
-        <button class="btn">Xem Ngay</button>
+    <div class="container">
+        <h1>Em Có Điều Muốn Nói 💖</h1>
+        <p>Bấm vào đây đi dễ thương lắm đó 🥺</p>
+        <button class="btn">Nhấn Nè 🫶</button>
     </div>
 </div>
 
 <script>
 setTimeout(function(){
     document.getElementById("loading").style.display = "none";
-    document.getElementById("main").style.display = "block";
+    document.getElementById("main").style.display = "flex";
 }, 2500);
 </script>
 
