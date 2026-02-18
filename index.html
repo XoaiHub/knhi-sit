@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trang Viral</title>
+<title>Viral Page</title>
 
-<!-- Open Graph Preview -->
-<meta property="og:title" content="Tiêu đề Viral Của Bạn" />
-<meta property="og:description" content="Mô tả hấp dẫn giống video TikTok" />
-<meta property="og:image" content="https://yourdomain.com/preview.gif" />
+<!-- Open Graph (ảnh preview khi share link) -->
+<meta property="og:title" content="Xem Ngay Cái Này 🔥" />
+<meta property="og:description" content="Click vào sẽ bất ngờ đó 😏" />
+<meta property="og:image" content="https://xoaihub.github.io/knhi-sit/preview.gif" />
 <meta property="og:type" content="website" />
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@ body{
     overflow:hidden;
 }
 
-/* GIF Loading Screen */
+/* GIF Loading */
 #loading{
     position:fixed;
     width:100%;
@@ -40,10 +40,12 @@ body{
 }
 
 #loading img{
-    max-width:100%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-/* Landing Page */
+/* Main */
 #main{
     display:none;
 }
@@ -64,12 +66,13 @@ video{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:rgba(0,0,0,0.5);
     text-align:center;
+    background:rgba(0,0,0,0.5);
+    padding:20px;
 }
 
 h1{
-    font-size:60px;
+    font-size:50px;
     font-weight:800;
     animation:fadeUp 1s ease forwards;
 }
@@ -77,6 +80,8 @@ h1{
 p{
     margin-top:20px;
     font-size:20px;
+    opacity:0.9;
+    animation:fadeUp 1.5s ease forwards;
 }
 
 .btn{
@@ -88,6 +93,8 @@ p{
     color:white;
     font-weight:600;
     cursor:pointer;
+    font-size:18px;
+    box-shadow:0 0 20px rgba(255,0,80,0.6);
     transition:0.3s;
 }
 
@@ -98,11 +105,18 @@ p{
 @keyframes fadeUp{
     from{
         opacity:0;
-        transform:translateY(50px);
+        transform:translateY(40px);
     }
     to{
         opacity:1;
         transform:translateY(0);
+    }
+}
+
+/* Mobile tối ưu */
+@media(max-width:768px){
+    h1{
+        font-size:32px;
     }
 }
 </style>
@@ -110,21 +124,21 @@ p{
 
 <body>
 
-<!-- GIF trước -->
+<!-- GIF -->
 <div id="loading">
     <img src="preview.gif">
 </div>
 
-<!-- Landing -->
+<!-- Main -->
 <div id="main">
-    <video autoplay muted loop>
+    <video autoplay muted loop playsinline>
         <source src="background.mp4" type="video/mp4">
     </video>
 
     <div class="overlay">
-        <h1>Nội dung giống TikTok</h1>
-        <p>Thay text theo video của bạn</p>
-        <button class="btn">Nhấn Ngay</button>
+        <h1>BẤM VÀO ĐI 😈</h1>
+        <p>Thứ này đang viral trên TikTok đó 🔥</p>
+        <button class="btn">Xem Ngay</button>
     </div>
 </div>
 
@@ -132,7 +146,7 @@ p{
 setTimeout(function(){
     document.getElementById("loading").style.display = "none";
     document.getElementById("main").style.display = "block";
-}, 3000);
+}, 2500);
 </script>
 
 </body>
