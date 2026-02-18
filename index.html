@@ -3,23 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trang Cute 💕</title>
+<title>Cute Love 💕</title>
 
-<!-- Open Graph preview khi share link -->
 <meta property="og:title" content="Bấm vào đi dễ thương lắm 🥺💖" />
-<meta property="og:description" content="Click thử xem có gì nè 🫶" />
-<meta property="og:image" content="https://anhdephd.vn/wp-content/uploads/2022/06/hinh-anh-dong-de-thuong-800x382.gif" />
+<meta property="og:description" content="Click thử xem có bất ngờ nè 🫶" />
+<meta property="og:image" content="https://media.istockphoto.com/id/1434159108/vi/vec-to/ch%C3%BA-th%E1%BB%8F-ho%E1%BA%A1t-h%C3%ACnh-d%E1%BB%85-th%C6%B0%C6%A1ng-minh-h%E1%BB%8Da-m%C3%B9a-xu%C3%A2n-v%E1%BB%9Bi-h%C3%ACnh-%E1%BA%A3nh-c%E1%BB%A7a-m%E1%BB%99t-con-th%E1%BB%8F-m%E1%BB%99t-con-th%E1%BB%8F-%C4%91ang.jpg?s=170667a&w=0&k=20&c=tFIa7FPjrQ76kMoPvxpH5sLQ-YNF14yyJz9PkhD22Qk=" />
 <meta property="og:type" content="website" />
 
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Quicksand',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Quicksand',sans-serif;}
 
 body{
     height:100vh;
@@ -30,7 +24,6 @@ body{
     overflow:hidden;
 }
 
-/* GIF loading */
 #loading{
     position:fixed;
     width:100%;
@@ -48,63 +41,53 @@ body{
     object-fit:cover;
 }
 
-/* Main cute card */
 #main{
     display:none;
+    text-align:center;
 }
 
 .container{
-    text-align:center;
     background:rgba(255,255,255,0.2);
     backdrop-filter:blur(12px);
     padding:50px 40px;
     border-radius:30px;
     box-shadow:0 10px 40px rgba(255,105,180,0.4);
-    animation:float 4s ease-in-out infinite;
 }
 
-h1{
-    font-size:40px;
-    font-weight:700;
-    color:white;
-}
-
-p{
-    margin-top:15px;
-    font-size:18px;
-    color:white;
-}
+h1{color:white;font-size:36px;}
+p{color:white;margin-top:10px;font-size:18px;}
 
 .btn{
-    margin-top:30px;
+    margin-top:20px;
     padding:14px 35px;
     border:none;
     border-radius:50px;
     background:white;
     color:#ff4f81;
     font-weight:600;
-    font-size:16px;
     cursor:pointer;
     transition:0.3s;
-    box-shadow:0 5px 20px rgba(255,105,180,0.5);
 }
 
-.btn:hover{
-    transform:scale(1.1);
+.btn:hover{transform:scale(1.1);}
+
+#popup{
+    margin-top:20px;
+    color:white;
+    font-size:18px;
 }
 
-/* Floating animation */
-@keyframes float{
-    0%{ transform:translateY(0px); }
-    50%{ transform:translateY(-15px); }
-    100%{ transform:translateY(0px); }
+/* Tim bay */
+.heart{
+    position:fixed;
+    bottom:0;
+    font-size:24px;
+    animation:floatUp 3s linear forwards;
 }
 
-/* Responsive */
-@media(max-width:768px){
-    h1{
-        font-size:28px;
-    }
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
 }
 </style>
 </head>
@@ -113,23 +96,59 @@ p{
 
 <!-- GIF đầu -->
 <div id="loading">
-    <img src="https://anhdephd.vn/wp-content/uploads/2022/06/hinh-anh-dong-de-thuong-800x382.gif">
+    <img src="https://media.istockphoto.com/id/1434159108/vi/vec-to/ch%C3%BA-th%E1%BB%8F-ho%E1%BA%A1t-h%C3%ACnh-d%E1%BB%85-th%C6%B0%C6%A1ng-minh-h%E1%BB%8Da-m%C3%B9a-xu%C3%A2n-v%E1%BB%9Bi-h%C3%ACnh-%E1%BA%A3nh-c%E1%BB%A7a-m%E1%BB%99t-con-th%E1%BB%8F-m%E1%BB%99t-con-th%E1%BB%8F-%C4%91ang.jpg?s=170667a&w=0&k=20&c=tFIa7FPjrQ76kMoPvxpH5sLQ-YNF14yyJz9PkhD22Qk=">
 </div>
 
-<!-- Nội dung chính -->
+<!-- Nội dung -->
 <div id="main">
     <div class="container">
         <h1>Em Có Điều Muốn Nói 💖</h1>
-        <p>Bấm vào đây đi dễ thương lắm đó 🥺</p>
-        <button class="btn">Nhấn Nè 🫶</button>
+        <p>Bấm vào đây đi 🥺</p>
+        <button class="btn" onclick="showMessage()">Nhấn Nè 🫶</button>
+        <div id="popup"></div>
     </div>
 </div>
+
+<!-- Nhạc nền -->
+<audio id="bgMusic" src="music.mp3" autoplay loop></audio>
 
 <script>
 setTimeout(function(){
     document.getElementById("loading").style.display = "none";
     document.getElementById("main").style.display = "flex";
 }, 2500);
+
+function showMessage(){
+    const lines = [
+        "Anh thích em nhiều lắm đó 💖",
+        "Từ lúc gặp em anh cười nhiều hơn 🥺",
+        "Em đúng là người dễ thương nhất luôn 🫶",
+        "Làm người yêu anh nhaaa 😳"
+    ];
+
+    let i = 0;
+    const popup = document.getElementById("popup");
+    popup.innerHTML = "";
+
+    const interval = setInterval(() => {
+        if(i < lines.length){
+            popup.innerHTML += lines[i] + "<br>";
+            createHeart();
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 1000);
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),3000);
+}
 </script>
 
 </body>
