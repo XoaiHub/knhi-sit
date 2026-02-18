@@ -3,122 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cute Page 💕</title>
-
-<meta property="og:title" content="Bấm vào đi dễ thương lắm 🥺💖" />
-<meta property="og:description" content="Click thử xem có bất ngờ nè 🫶" />
-<meta property="og:image" content="https://media.istockphoto.com/id/1434159108/vi/vec-to/ch%C3%BA-th%E1%BB%8F-ho%E1%BA%A1t-h%C3%ACnh-d%E1%BB%85-th%C6%B0%C6%A1ng-minh-h%E1%BB%8Da-m%C3%B9a-xu%C3%A2n-v%E1%BB%9Bi-h%C3%ACnh-%E1%BA%A3nh-c%E1%BB%A7a-m%E1%BB%99t-con-th%E1%BB%8F-m%E1%BB%99t-con-th%E1%BB%8F-%C4%91ang.jpg?s=170667a&w=0&k=20&c=tFIa7FPjrQ76kMoPvxpH5sLQ-YNF14yyJz9PkhD22Qk=" />
-<meta property="og:type" content="website" />
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Cute Page</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Quicksand',sans-serif;
-}
-
 body{
+    margin:0;
     height:100vh;
-    background-image:url("https://media.istockphoto.com/id/1434159108/vi/vec-to/ch%C3%BA-th%E1%BB%8F-ho%E1%BA%A1t-h%C3%ACnh-d%E1%BB%85-th%C6%B0%C6%A1ng-minh-h%E1%BB%8Da-m%C3%B9a-xu%C3%A2n-v%E1%BB%9Bi-h%C3%ACnh-%E1%BA%A3nh-c%E1%BB%A7a-m%E1%BB%99t-con-th%E1%BB%8F-m%E1%BB%99t-con-th%E1%BB%8F-%C4%91ang.jpg?s=170667a&w=0&k=20&c=tFIa7FPjrQ76kMoPvxpH5sLQ-YNF14yyJz9PkhD22Qk=");
-    background-size:cover;
-    background-position:center;
+    background:url("https://media.istockphoto.com/id/1434159108/vi/vec-to/ch%C3%BA-th%E1%BB%8F-ho%E1%BA%A1t-h%C3%ACnh-d%E1%BB%85-th%C6%B0%C6%A1ng-minh-h%E1%BB%8Da-m%C3%B9a-xu%C3%A2n-v%E1%BB%9Bi-h%C3%ACnh-%E1%BA%A3nh-c%E1%BB%A7a-m%E1%BB%99t-con-th%E1%BB%8F-m%E1%BB%99t-con-th%E1%BB%8F-%C4%91ang.jpg?s=170667a&w=0&k=20&c=tFIa7FPjrQ76kMoPvxpH5sLQ-YNF14yyJz9PkhD22Qk=") center/cover no-repeat;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    font-family:sans-serif;
 }
 
-/* Overlay làm chữ rõ hơn */
-.overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.4);
-    z-index:1;
-}
-
-/* Nội dung chính */
-.container{
-    position:relative;
-    z-index:2;
+.box{
+    background:rgba(0,0,0,0.5);
+    padding:40px;
+    border-radius:20px;
     text-align:center;
-    background:rgba(255,255,255,0.2);
-    backdrop-filter:blur(10px);
-    padding:50px 40px;
-    border-radius:30px;
-    box-shadow:0 10px 40px rgba(255,105,180,0.4);
-}
-
-h1{
-    font-size:40px;
     color:white;
 }
 
-p{
-    margin-top:10px;
-    color:white;
-    font-size:18px;
-}
-
-.btn{
-    margin-top:25px;
-    padding:14px 40px;
+button{
+    margin-top:20px;
+    padding:12px 30px;
     border:none;
-    border-radius:50px;
+    border-radius:30px;
     background:#ff4f81;
     color:white;
-    font-weight:600;
-    font-size:18px;
+    font-size:16px;
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 0 20px rgba(255,0,120,0.6);
-}
-
-.btn:hover{
-    transform:scale(1.1);
 }
 
 #popup{
     margin-top:20px;
-    color:white;
     font-size:18px;
 }
 
-/* Tim bay */
+/* tim bay */
 .heart{
     position:fixed;
     bottom:0;
     font-size:24px;
-    animation:floatUp 3s linear forwards;
-    z-index:3;
+    animation:fly 3s linear forwards;
 }
 
-@keyframes floatUp{
-    0%{transform:translateY(0);opacity:1;}
-    100%{transform:translateY(-100vh);opacity:0;}
+@keyframes fly{
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-100vh);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
-
-<div class="container">
-    <h1>BẤM VÀO ĐI 😈</h1>
-    <p>Thứ này đang viral trên TikTok đó 🔥</p>
-    <button class="btn" onclick="showMessage()">Xem Ngay</button>
+<div class="box">
+    <h2>BẤM VÀO ĐI 😈</h2>
+    <button id="btn">Xem Ngay</button>
     <div id="popup"></div>
 </div>
 
-<audio id="bgMusic" src="music.mp3" loop></audio>
-
 <script>
-function showMessage(){
-    document.getElementById("bgMusic").play();
+document.getElementById("btn").addEventListener("click", function(){
 
     const lines = [
         "Anh thích em nhiều lắm đó 💖",
@@ -131,7 +77,7 @@ function showMessage(){
     const popup = document.getElementById("popup");
     popup.innerHTML = "";
 
-    const interval = setInterval(() => {
+    const interval = setInterval(function(){
         if(i < lines.length){
             popup.innerHTML += lines[i] + "<br>";
             createHeart();
@@ -140,15 +86,15 @@ function showMessage(){
             clearInterval(interval);
         }
     }, 1000);
-}
+});
 
 function createHeart(){
     const heart = document.createElement("div");
-    heart.classList.add("heart");
+    heart.className = "heart";
     heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.left = Math.random()*100 + "vw";
     document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),3000);
+    setTimeout(function(){ heart.remove(); }, 3000);
 }
 </script>
 
