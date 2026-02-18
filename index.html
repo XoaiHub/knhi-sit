@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang Viral</title>
+
+<!-- Open Graph Preview -->
+<meta property="og:title" content="Tiêu đề Viral Của Bạn" />
+<meta property="og:description" content="Mô tả hấp dẫn giống video TikTok" />
+<meta property="og:image" content="https://yourdomain.com/preview.gif" />
+<meta property="og:type" content="website" />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+    overflow:hidden;
+}
+
+/* GIF Loading Screen */
+#loading{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+    z-index:10;
+}
+
+#loading img{
+    max-width:100%;
+}
+
+/* Landing Page */
+#main{
+    display:none;
+}
+
+video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+}
+
+.overlay{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.5);
+    text-align:center;
+}
+
+h1{
+    font-size:60px;
+    font-weight:800;
+    animation:fadeUp 1s ease forwards;
+}
+
+p{
+    margin-top:20px;
+    font-size:20px;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 40px;
+    background:#ff0050;
+    border:none;
+    border-radius:50px;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- GIF trước -->
+<div id="loading">
+    <img src="preview.gif">
+</div>
+
+<!-- Landing -->
+<div id="main">
+    <video autoplay muted loop>
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay">
+        <h1>Nội dung giống TikTok</h1>
+        <p>Thay text theo video của bạn</p>
+        <button class="btn">Nhấn Ngay</button>
+    </div>
+</div>
+
+<script>
+setTimeout(function(){
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}, 3000);
+</script>
+
+</body>
+</html>
